@@ -8,35 +8,40 @@ const easternNBAteams = {
             city: "Boston",
             state: "Massachusetts",
             arena: "TD Garden",
-            championships: 17
+            championships: 17,
+            path:"/easternNBAteams/0"
         },
         {
             name: "Miami Heat",
             city: "Miami",
             state: "Florida",
             arena: "Kaseya Center",
-            championships: 3
+            championships: 3,
+            path:"/easternNBAteams/1"
         },
         {
             name: "Chicago Bulls",
             city: "Chicago",
             state: "Illinois",
             arena: "United Center",
-            championships: 6
+            championships: 6,
+            path:"/easternNBAteams/2"
         },
         {
             name: "Philadelphia 76ers",
             city: "Philadelphia",
             state: "Pennsylvania",
             arena: "Wells Fargo Center",
-            championships: 3
+            championships: 3,
+            path:"/easternNBAteams/3"
         },
         {
             name: "Milwaukee Bucks",
             city: "Milwaukee",
             state: "Wisconsin",
             arena: "Fiserv Forum",
-            championships: 2
+            championships: 2,
+            path:"/easternNBAteams/4"
          }
     ]
 };
@@ -59,9 +64,14 @@ app.get("/", (req, res)=>{
   app.get("/overview", (req, res)=>{
     res.render("overview.ejs", easternNBAteams);
   })
-  app.get("/easternNBAteams/0", (req, res)=>{
-    res.render("detail.ejs", easternNBAteams.teams[0]);
-  })
+
+    
+    app.get("/easternNBAteams/:index", (req, res) => {
+    const i = req.params.index
+       res.render('detail.ejs', easternNBAteams.teams[i]);
+    });
+
+
 
 app.listen(3000, () => {
     console.log("Server running")
