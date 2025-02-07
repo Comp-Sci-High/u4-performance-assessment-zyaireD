@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBA Eastern Conference Teams</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>NBA Eastern Conference Teams</h1>
+    </header>
+    <section class="team-container">
+        <% for(let i = 0; i <teams.length; i++){ %>
+            <div class="teams-card">
+              <p><%= teams[i].name %></p>
+              <p><%= teams[i].city %></p>
+              <p><%= teams[i].state %></p>
+              <p><%= teams[i].arena %></p>
+              <p><%= teams[i].championships %></p>
+              <a href= "<%= teams[i].path %>">More info</a>
+            </div>
+          <%}%>
+    
+    </section>
+    <footer>
+        <p>&copy; 2025 NBA Overview</p>
+    </footer>
+</body>
+
+</html>
